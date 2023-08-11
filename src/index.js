@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './Components/App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import reducer, { initialState } from './Components/reducer';
+import { StateProvider } from './Components/StateProvider';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
-  <React.StrictMode>
+  <BrowserRouter>
+    <StateProvider initialState={initialState} reducer={reducer}>
     <App />
-  </React.StrictMode>
+    </StateProvider>
+    
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
